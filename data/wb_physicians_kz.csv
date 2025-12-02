@@ -1,24 +1,19 @@
-import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
-
-st.title("Қазақстан: АМСК / МӘМС деректерінің аналитикалық панелі")
-st.write("Бұл веб-қосымша World Bank деректері негізінде алғашқы медициналық-санитарлық көмектің қолжетімділігі мен сапасын бағалайды.")
-
-df = pd.read_csv("data/wb_physicians_kz.csv")
-
-df_clean = df.dropna()
-df_clean["year"] = df_clean["year"].astype(int)
-df_clean = df_clean.sort_values("year")
-
-st.subheader("Дәрігерлер саны (1000 тұрғынға) — динамика")
-st.dataframe(df_clean)
-
-fig, ax = plt.subplots(figsize=(10,5))
-ax.plot(df_clean["year"], df_clean["physicians_per_1000"], marker="o")
-ax.set_xlabel("Жыл")
-ax.set_ylabel("1000 тұрғынға шаққандағы дәрігерлер саны")
-ax.set_title("Қазақстандағы дәрігер тығыздығының динамикасы")
-ax.grid(True)
-
-st.pyplot(fig)
+year,physicians_per_1000
+1990,3.93
+1991,3.80
+1992,3.89
+1993,3.79
+1994,3.64
+1995,3.58
+1996,3.36
+1997,3.20
+1998,3.45
+1999,3.51
+2000,3.55
+2001,3.61
+2002,3.63
+2003,3.82
+2004,3.89
+2005,3.68
+2006,3.92
+2007,4.12
